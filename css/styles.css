@@ -1,0 +1,244 @@
+:root {
+    --fundo: #f4f1ec;
+    --superficie: #ffffff;
+    --texto: #202124;
+    --texto-suave: #67625d;
+    --linha: #ded6cc;
+    --destaque: #1f7a68;
+    --destaque-escuro: #145748;
+    --quente: #c97a32;
+    --sombra: 0 18px 45px rgba(43, 37, 30, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.rotulo {
+    margin: 0 0 8px;
+    color: var(--destaque);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 14px;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.08;
+}
+
+h2 {
+    margin-bottom: 12px;
+    font-size: 1.45rem;
+}
+
+h3 {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+.destaque p,
+.destaque-perfil p,
+.secao-sobre p,
+.cartao-post p {
+    color: var(--texto-suave);
+}
+
+.cabecalho-site {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    padding: 18px clamp(18px, 5vw, 64px);
+    background: rgba(244, 241, 236, 0.94);
+    border-bottom: 1px solid var(--linha);
+    backdrop-filter: blur(10px);
+}
+
+.marca {
+    font-weight: 800;
+}
+
+.menu-site {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu-site a {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--texto-suave);
+    font-weight: 700;
+}
+
+.menu-site a:hover {
+    background: var(--superficie);
+    color: var(--texto);
+}
+
+.menu-site a[aria-current="page"] {
+    background: var(--superficie);
+    color: var(--destaque-escuro);
+}
+
+main {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.destaque,
+.destaque-perfil {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+    gap: 28px;
+    align-items: center;
+    padding: 56px 0 34px;
+}
+
+.cartao-destaque,
+.cartao-post,
+.grade-lista article,
+.secao-sobre,
+.lista-musicas article {
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+}
+
+.cartao-destaque {
+    display: grid;
+    gap: 12px;
+    padding: 24px;
+}
+
+.cartao-destaque span {
+    display: block;
+    padding: 14px 16px;
+    border-left: 4px solid var(--quente);
+    background: #faf7f1;
+    font-weight: 800;
+}
+
+.grade-conteudo,
+.grade-lista,
+.lista-musicas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.cartao-post,
+.grade-lista article,
+.lista-musicas article,
+.secao-sobre {
+    padding: 22px;
+}
+
+.categoria-post {
+    margin-bottom: 8px;
+    color: var(--quente);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.link-post {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--destaque-escuro);
+    font-weight: 800;
+}
+
+.pagina-perfil,
+.pagina-receita {
+    padding-bottom: 42px;
+}
+
+.destaque-perfil {
+    grid-template-columns: 180px minmax(0, 1fr);
+}
+
+.foto-perfil {
+    display: block;
+    width: 160px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 56% 32%;
+    border: 4px solid var(--superficie);
+    box-shadow: var(--sombra);
+}
+
+.secao-sobre {
+    margin-bottom: 18px;
+}
+
+.grade-lista {
+    margin-bottom: 18px;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--texto-suave);
+}
+
+li + li {
+    margin-top: 6px;
+}
+
+.lista-musicas {
+    margin-top: 16px;
+}
+
+@media (max-width: 760px) {
+    .destaque,
+    .destaque-perfil,
+    .grade-conteudo,
+    .grade-lista,
+    .lista-musicas {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecalho-site {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .destaque,
+    .destaque-perfil {
+        padding-top: 34px;
+    }
+
+    .foto-perfil {
+        width: 132px;
+    }
+}
